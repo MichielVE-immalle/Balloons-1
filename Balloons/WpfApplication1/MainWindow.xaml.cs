@@ -33,7 +33,7 @@ namespace WpfApplication1
         {
             canvas.Children.Clear();
             balloons.Clear();
-            for(var i = 0; i<100; i++)
+            for(var i = 0; i<200; i++)
             {
                 Balloon newBalloon = new Balloon(canvas, 
                         rndGen.Next(10, 50), 

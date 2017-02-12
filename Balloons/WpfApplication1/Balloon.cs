@@ -17,6 +17,7 @@ namespace WpfApplication1
         private int x = 10;
         private int y = 10;
         private int diameter = 10;
+        private int fontSize = 1;
 
         Ellipse ellipse = new Ellipse();
         Brush background = new LinearGradientBrush(Colors.Black, Colors.Red, 20);
@@ -51,7 +52,7 @@ namespace WpfApplication1
             TxtBlck.Width = diameter;
             TxtBlck.Margin = new Thickness(x + diameter / 4, y + diameter / 2, 0, 0);
             TxtBlck.FontSize = fontSize;
-            TxtBlck.FontFamily = new FontFamily("Gigi");
+            TxtBlck.FontFamily = new FontFamily("Murp");
 
             canvas.Children.Add(ellipse);
             canvas.Children.Add(TxtBlck);
@@ -74,6 +75,7 @@ namespace WpfApplication1
         {
             y -= 10;
             ellipse.Margin = new Thickness(x, y, 0, 0);
+            TxtBlck.Margin = new Thickness(x, y + diameter / 2, 0, 0);
         }
 
     }
