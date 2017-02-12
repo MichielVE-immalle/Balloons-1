@@ -10,10 +10,10 @@ features:
 TODO:
 
 - [x] verplaats random generator van Balloon naar MainWindow
-- [ ] zorg dat oude ballonnen verdwijnen bij init
+- [x] zorg dat oude ballonnen verdwijnen bij init
 - [x] achtergrondkleur
-- [ ] tekst
-- [ ] maak properties:
+- [x] tekst
+- [x] maak properties:
 	- X
 	- Y
 	- Diameter
