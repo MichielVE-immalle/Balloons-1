@@ -17,45 +17,48 @@ namespace WpfApplication1
         private int x = 10;
         private int y = 10;
         private int diameter = 10;
-        private int fontSize = 1;
+        private int fontSize = 10;
 
         Ellipse ellipse = new Ellipse();
-        Brush background = new LinearGradientBrush(Colors.Black, Colors.Red, 20);
+        Brush background = new LinearGradientBrush(Colors.White, Colors.Black, 20);
         TextBlock TxtBlck = new TextBlock();
+        Canvas cans = new Canvas();
 
 
         public Balloon(Canvas canvas, int diameter)
         {
+            cans = canvas;
             this.diameter = diameter;
 
-            UpdateEllipse(canvas);
+            UpdateEllipse();
         }
 
         public Balloon(Canvas canvas, int diameter, int height, int xpos)
         {
+            cans = canvas;
             this.diameter = diameter;
             x = xpos;
             y = height;
 
-            UpdateEllipse(canvas);
+            UpdateEllipse();
         }
 
-        void UpdateEllipse(Canvas canvas)
+        void UpdateEllipse()
         {
             ellipse.Width = diameter;
             ellipse.Height = diameter;
             ellipse.Margin = new Thickness(x, y, 0, 0);
-            ellipse.Stroke = new SolidColorBrush(Colors.Black);
+            ellipse.Stroke = new SolidColorBrush(Colors.White);
             ellipse.Fill = background;
-            TxtBlck.Text = "Happy Birthday!";
+            TxtBlck.Text = "Oh dierbaar België";
             TxtBlck.Height = diameter;
             TxtBlck.Width = diameter;
             TxtBlck.Margin = new Thickness(x + diameter / 4, y + diameter / 2, 0, 0);
             TxtBlck.FontSize = fontSize;
             TxtBlck.FontFamily = new FontFamily("Murp");
 
-            canvas.Children.Add(ellipse);
-            canvas.Children.Add(TxtBlck);
+            cans.Children.Add(ellipse);
+            cans.Children.Add(TxtBlck);
         }
 
         public void Grow()
@@ -76,6 +79,19 @@ namespace WpfApplication1
             y -= 10;
             ellipse.Margin = new Thickness(x, y, 0, 0);
             TxtBlck.Margin = new Thickness(x, y + diameter / 2, 0, 0);
+        }
+
+        public Brush Background
+        {
+            get
+            {
+                return background;
+            }
+            set
+            {
+                background = value;
+                UpdateEllipse();
+            }
         }
 
     }

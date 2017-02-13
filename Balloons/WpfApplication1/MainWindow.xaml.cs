@@ -33,13 +33,24 @@ namespace WpfApplication1
         {
             canvas.Children.Clear();
             balloons.Clear();
-            for(var i = 0; i<200; i++)
+            for(var i = 0; i<100; i++)
             {
                 Balloon newBalloon = new Balloon(canvas, 
                         rndGen.Next(10, 50), 
                         rndGen.Next(300),
                         rndGen.Next(300)
-                    );
+                        );
+
+                if(i % 3 == 0)
+                {
+                    newBalloon.Background = Brushes.Red;
+                }
+
+                if(i % 3 == 0)
+                {
+                    newBalloon.Background = Brushes.Yellow;
+                }
+
                 balloons.Add(newBalloon);
             }
         }
