@@ -30,7 +30,7 @@ namespace WpfApplication1
             cans = canvas;
             this.diameter = diameter;
 
-            UpdateEllipse();
+            CreateEllipse();
         }
 
         public Balloon(Canvas canvas, int diameter, int height, int xpos)
@@ -40,7 +40,7 @@ namespace WpfApplication1
             x = xpos;
             y = height;
 
-            UpdateEllipse();
+            CreateEllipse();
         }
 
         void UpdateEllipse()
@@ -48,7 +48,7 @@ namespace WpfApplication1
             ellipse.Width = diameter;
             ellipse.Height = diameter;
             ellipse.Margin = new Thickness(x, y, 0, 0);
-            ellipse.Stroke = new SolidColorBrush(Colors.White);
+            ellipse.Stroke = new SolidColorBrush(Colors.Black);
             ellipse.Fill = background;
             TxtBlck.Text = "Oh dierbaar België";
             TxtBlck.Height = diameter;
@@ -56,6 +56,11 @@ namespace WpfApplication1
             TxtBlck.Margin = new Thickness(x + diameter / 4, y + diameter / 2, 0, 0);
             TxtBlck.FontSize = fontSize;
             TxtBlck.FontFamily = new FontFamily("Murp");
+        }
+
+        void CreateEllipse()
+        {
+            UpdateEllipse();
 
             cans.Children.Add(ellipse);
             cans.Children.Add(TxtBlck);
@@ -64,21 +69,15 @@ namespace WpfApplication1
         public void Grow()
         {
             diameter += 10;
-            ellipse.Width = diameter;
-            ellipse.Height = diameter;
-
+           
             fontSize = fontSize + 2;
-            TxtBlck.Width = diameter;
-            TxtBlck.Height = diameter;
-            TxtBlck.FontSize = fontSize;
-            TxtBlck.Margin = new Thickness(x, y + diameter / 2, 0, 0);
+            UpdateEllipse();
         }
 
         public void Move()
         {
             y -= 10;
-            ellipse.Margin = new Thickness(x, y, 0, 0);
-            TxtBlck.Margin = new Thickness(x, y + diameter / 2, 0, 0);
+            UpdateEllipse();
         }
 
         public Brush Background

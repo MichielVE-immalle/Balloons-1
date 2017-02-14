@@ -41,12 +41,12 @@ namespace WpfApplication1
                         rndGen.Next(300)
                         );
 
-                if(i % 3 == 0)
+                if(i % 2 == 0)
                 {
                     newBalloon.Background = Brushes.Red;
                 }
 
-                if(i % 3 == 0)
+                if (i % 3 == 0)
                 {
                     newBalloon.Background = Brushes.Yellow;
                 }
