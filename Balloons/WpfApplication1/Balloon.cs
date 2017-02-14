@@ -25,12 +25,9 @@ namespace WpfApplication1
         Canvas cans = new Canvas();
 
 
-        public Balloon(Canvas canvas, int diameter)
+        public Balloon(Canvas canvas, int diameter) : this(canvas, diameter, 10, 10)
         {
-            cans = canvas;
-            this.diameter = diameter;
 
-            CreateEllipse();
         }
 
         public Balloon(Canvas canvas, int diameter, int height, int xpos)
@@ -50,7 +47,7 @@ namespace WpfApplication1
             ellipse.Margin = new Thickness(x, y, 0, 0);
             ellipse.Stroke = new SolidColorBrush(Colors.Black);
             ellipse.Fill = background;
-            TxtBlck.Text = "Oh dierbaar België";
+            TxtBlck.Text = "België";
             TxtBlck.Height = diameter;
             TxtBlck.Width = diameter;
             TxtBlck.Margin = new Thickness(x + diameter / 4, y + diameter / 2, 0, 0);
